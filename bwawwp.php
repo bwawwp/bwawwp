@@ -8,6 +8,6 @@
 */
 function bwawwp_init()
 {
-	//require(dirname(__FILE__) . "/chapter-1/example-1.php");
+	//require(dirname(__FILE__) . "/chapter-01/example-01.php");
 }
 add_action("init", "bwawwp_init");
