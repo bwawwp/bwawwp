@@ -8,6 +8,7 @@
 */
 function bwawwp_init()
 {
-	//require(dirname(__FILE__) . "/chapter-01/example-01.php");
+	if(!empty($_REQUEST['chapter']) && !empty($_REQUEST['example']))	
+		require(dirname(__FILE__) . "/chapter-<?php echo $_REQUEST['chapter'];?>/example-<?php echo $_REQUEST['example'];?>.php");
 }
 add_action("init", "bwawwp_init");
