@@ -41,7 +41,7 @@ wp_update_user( $userdata );
 $user = get_userdata( $user->ID );
 echo 'Hi: ' . $user->first_name . ' ' . $user->last_name . '<br>';
 
-// delete user - lets delete the original admin and set their posts to our new admin
+// delete user - delete the original admin and set their posts to our new admin
 // wp_delete_user( 1, $user->ID );
 
 /*

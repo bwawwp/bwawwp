@@ -2,7 +2,7 @@
 // get brian's id
 $brian_id = get_user_by( 'login', 'brian' )->ID;
 
-// add user meta - notice 3rd parameter/unique is set to true. no polygamy! only one wife at a time.
+// add user meta - unique is set to true. no polygamy! only one wife at a time.
 add_user_meta( $brian_id, 'bwawwp_wife', 'Robin Jade Morales Messenlehner', true);
 
 // get user meta - returning a single value

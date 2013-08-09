@@ -1,7 +1,7 @@
 <?php
 // add option
-$twitter_accounts = array( '@bwawwp', '@bmess', '@jason_coleman' );
-add_option( 'bwawwp_twitter_accounts', $twitter_accounts );
+$twitters = array( '@bwawwp', '@bmess', '@jason_coleman' );
+add_option( 'bwawwp_twitter_accounts', $twitters );
 
 // get option
 $bwawwp_twitter_accounts = get_option( 'bwawwp_twitter_accounts' );
@@ -10,8 +10,8 @@ print_r( $bwawwp_twitter_accounts );
 echo '</pre>';
 
 // update option
-$twitter_accounts = array_merge( $twitter_accounts, array( '@webdevstudios', '@strangerstudios' ) );
-update_option( 'bwawwp_twitter_accounts', $twitter_accounts );
+$twitters = array_merge( $twitters, array( '@webdevstudios', '@strangerstudios' ) );
+update_option( 'bwawwp_twitter_accounts', $twitters );
 
 // get option
 $bwawwp_twitter_accounts = get_option( 'bwawwp_twitter_accounts' );

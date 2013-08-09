@@ -3,7 +3,9 @@
 $args = array(
 	'post_title'   => 'Building Web Apps with WordPress',
 	'post_excerpt' => 'WordPress as an Application Framework',
-	'post_content' => 'WordPress is the key to successful cost effective web solutions in most situations. Build almost anything on top of the WordPress platform. DO IT NOW!!!!',
+	'post_content' => 'WordPress is the key to successful cost effective 
+	web solutions in most situations. Build almost anything on top of the 
+	WordPress platform. DO IT NOW!!!!',
 	'post_status'  => 'draft',
 	'post_type'    => 'post',
 	'post_author'  => 1,

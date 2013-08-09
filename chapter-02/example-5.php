@@ -4,10 +4,14 @@ $posts = get_posts( array( 'numberposts' => '1', 'orderby' => 'post_date', 'orde
 foreach ( $posts as $post ) {
 	$post_id = $post->ID;
 
-	// update post meta - creates 2 post meta records
-	update_post_meta( $post_id, '_bwawwp_hidden_field', 'You SHOULD NOT see this in the custom fields section when editing your latest post.' );
-	update_post_meta( $post_id, 'bwawwp_displayed_field', 'You SHOULD see this in the custom fields section when editing your latest post.' );
-
+	// update post meta - public meta data
+	$content = 'You SHOULD see this custom field when editing your latest post.';
+	update_post_meta( $post_id, 'bwawwp_displayed_field', $content );
+	
+	// update post meta - hidden meta data
+	$content = str_replace( 'SHOULD', 'SHOULD NOT', $content );
+	update_post_meta( $post_id, '_bwawwp_hidden_field', $content );
+	
 	// array of student logins
 	$students[] = 'dalya';
 	$students[] = 'ashleigh';
@@ -45,17 +49,18 @@ Array
 (
     [_bwawwp_hidden_field] => Array
         (
-            [0] => You SHOULD NOT see this in the custom fields section when editing your latest post.
+            [0] => You SHOULD NOT see this custom field when editing your latest post.
         )
 
     [bwawwp_displayed_field] => Array
         (
-            [0] => You SHOULD see this in the custom fields section when editing your latest post.
+            [0] => You SHOULD see this custom field when editing your latest post.
         )
 
     [bwawwp_students] => Array
         (
-            [0] => a:7:{i:0;s:5:"dalya";i:1;s:8:"ashleigh";i:2;s:4:"lola";i:3;s:5:"isaac";i:4;s:5:"marin";i:5;s:5:"brian";i:6;s:4:"nina";}
+            [0] => a:7:{i:0;s:5:"dalya";i:1;s:8:"ashleigh";i:2;s:4:"lola";i:3;s:5:"isaac";
+            i:4;s:5:"marin";i:5;s:5:"brian";i:6;s:4:"nina";}
         )
 
     [bwawwp_student] => Array
