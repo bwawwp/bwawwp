@@ -13,7 +13,7 @@ $comments[] = 'Take a trip to South Jersey';
 $comments[] = 'Dinner at Taco Bell';
 $comments[] = 'Make a baby';
 
-//loop comments array
+// loop comments array
 foreach ( $comments as $key => $comment ) {
 	// insert comments
 	$commentdata = array(
@@ -62,7 +62,7 @@ foreach ( $comments as $comment ) {
 	if ( $comment_ids[0] == $comment->comment_ID ) {
 		$commentarr = array(
 			'comment_ID' => $comment->comment_ID,
-			'comment_content' =>   $comment->comment_content . ' & make a baby!',
+			'comment_content' => $comment->comment_content . ' & make a baby!',
 		);
 		wp_update_comment( $commentarr );
 		// delete all other comments
