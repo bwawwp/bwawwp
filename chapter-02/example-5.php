@@ -1,6 +1,6 @@
 <?php
 // get posts - return the latest post
-$posts = get_posts( array( 'numberposts' => '1', 'orderby' => 'post_date', 'order' => 'DESC' ) );
+$posts = get_posts( array( 'posts_per_page' => '1', 'orderby' => 'post_date', 'order' => 'DESC' ) );
 foreach ( $posts as $post ) {
 	$post_id = $post->ID;
 

@@ -14,11 +14,11 @@ $comments[] = 'Dinner at Taco Bell';
 $comments[] = 'Make a baby';
 
 // loop comments array
-foreach ( $comments as $key => $comment ) {
+foreach ( $comments as $comment ) {
 	// insert comments
 	$commentdata = array(
 		'comment_post_ID' => $post_id,
-		'comment_content' => $comments[$key],
+		'comment_content' => $comment,
 	);
 	$comment_ids[] = wp_insert_comment( $commentdata );
 }
