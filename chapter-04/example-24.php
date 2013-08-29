@@ -1,5 +1,5 @@
 <?php
-echo $_SERVER[‘HTTP_USER_AGENT’];
+echo $_SERVER['HTTP_USER_AGENT'];
 
 /*
 	Outputs something like:
