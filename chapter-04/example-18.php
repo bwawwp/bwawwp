@@ -9,5 +9,5 @@
 </style>
 
 <?php
-	wp_enqueue_style(‘example’, ‘example.css’, NULL, ‘1.0’, ‘print’);
+	wp_enqueue_style('example', 'example.css', NULL, '1.0', 'print');
 ?>
