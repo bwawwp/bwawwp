@@ -3,7 +3,7 @@
 function sp_invite_students_shortcode($atts, $content=null, $code='')
 {			
 	//start output buffering
-ob_start();						
+	ob_start();						
 	
 	//look for an invite-students template part in the active theme
 	$template = locate_template('schoolpress/templates/invite-students.php');
