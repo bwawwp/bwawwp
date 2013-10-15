@@ -1,3 +1,4 @@
+<?php
 //enqueue heartbeat.js and our JavaScript
 function hbdemo_init()
 {   
@@ -14,3 +15,4 @@ function hbdemo_init()
     add_action("wp_footer", "hbdemo_wp_footer");
 }
 add_action('init', 'hbdemo_init');
+?>
