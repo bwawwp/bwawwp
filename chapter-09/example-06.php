@@ -1,3 +1,4 @@
+<?php
 //our JS for the page
 function my_wp_footer_registration_JavaScript()
 {
@@ -49,3 +50,4 @@ function my_wp_footer_registration_JavaScript()
 <?php
 }
 add_action('wp_footer', 'my_wp_footer_registration_JavaScript');
+?>
