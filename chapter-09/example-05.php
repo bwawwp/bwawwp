@@ -1,3 +1,4 @@
+<?php
 function my_wp_head_ajax_url()
 {
 ?>
@@ -8,3 +9,4 @@ var ajaxurl = '<?php echo admin_url("admin-ajax.php");?>';
 }
 if(!is_admin())
     add_action('wp_head', 'my_wp_head_ajax_url');
+?>
