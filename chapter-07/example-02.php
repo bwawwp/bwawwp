@@ -8,6 +8,6 @@ $sidebar_content = $post->sidebar_content;
 <div class="sidebar">
   <?php
     //echo do_shortcode($sidebar_content);
-    echo apply_filters("the_content", $sidebar_content);
+    echo apply_filters('the_content', $sidebar_content);
   ?>
 </div>
