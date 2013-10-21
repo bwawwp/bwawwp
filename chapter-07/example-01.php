@@ -11,6 +11,7 @@ function sp_msg_shortcode($atts, $content)
 		'type' => 'information',
 	), $atts ) );
 
+  $content = do_shortcode($content);	//allow nested shortcodes
   $r = '<div class="message message-' . $type . '"><p>' . $content . '</p></div>';
   return $r;
 }
