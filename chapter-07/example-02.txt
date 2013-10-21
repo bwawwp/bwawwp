@@ -1,0 +1,3 @@
+[msg type=”error”]
+	An error has occured. Use the following link for help: [help_link].
+[/msg]
