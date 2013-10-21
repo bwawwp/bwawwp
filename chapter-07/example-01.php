@@ -11,7 +11,8 @@ function sp_msg_shortcode($atts, $content)
 		'type' => 'information',
 	), $atts ) );
 
-  return '<div class="message message-' . $type . '"><p>" . $content . "</p></div>";
+  $r = '<div class="message message-' . $type . '"><p>' . $content . '</p></div>';
+  return $r;
 }
 add_shortcode('msg', 'sp_msg_shortcode');
 ?>
