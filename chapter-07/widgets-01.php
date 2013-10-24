@@ -21,4 +21,7 @@ class My_Widget extends WP_Widget {
 		// processes widget options to be saved
 	}
 }
+add_action('widgets_init',
+     create_function('', 'return register_widget("My_Widget");')
+);
 ?>
