@@ -2,6 +2,7 @@
 register_sidebar(array(
   'name' => 'Student Status',
   'id' => 'schoolpress_student_status',
+  'description' => 'Sidebar used on assignment pages.',
   'before_widget' => '',
   'after_widget' => '',
   'before_title' => '',
