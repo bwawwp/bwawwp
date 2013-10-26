@@ -1,7 +1,7 @@
 <?php
 register_sidebar(array(
-  'name' => 'Student Status',
-  'id' => 'schoolpress_student_status',
+  'name' => 'Assignment Pages Sidebar',
+  'id' => 'schoolpress_assignment_pages',
   'description' => 'Sidebar used on assignment pages.',
   'before_widget' => '',
   'after_widget' => '',
