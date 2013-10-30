@@ -1,6 +1,6 @@
 <?php
 //don't require any caps by default, but allow developers to add checks
-$caps = apply_filters('wp_doc_caps', array());
+$caps = apply_filters('wpdoc_caps', array());
 
 if(!empty($caps))
 {
