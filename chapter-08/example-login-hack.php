@@ -3,7 +3,7 @@
 Plugin Name: WordPress Login Hack Script
 Plugin URI: http://schoolpress.me/wordpress-login-hack-script/
 Description: Tries 10 common passwords on a remote WordPress site.
-Version: .1
+Version: 1.0
 Author: Stranger Studios
 Author URI: http://www.strangerstudios.com
 */
