@@ -1,6 +1,8 @@
 <?php
 class Homework
 {
+	/* Snipped constructor and other methods from earlier examples */
+	
 	/*
 		Get related submissions.
 		Set $force to true to force the method to get children again.
