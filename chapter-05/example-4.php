@@ -52,16 +52,17 @@ function schoolpress_the_content_homework_submission($content){
 	// Add a basic submission form after the $content variable being filtered.
 	} else {
 		
-		ob_start();?>
+		ob_start();
+		?>
 		<h3><?php _e( 'Submit your Homework below!', 'schoolpress' );?></h3>
 		<form method="post">
 		<?php wp_editor( '', 'homework-submission', array( 'media_buttons' => false ) );?>
-		<input type="submit" name="submit-homework-submission" value="Submit">
+		<input type="submit" name="submit-homework-submission" value="Submit" />
 		</form>
-		<?php $form = ob_get_contents();
+		<?php 
+		$form = ob_get_contents();
 		ob_end_clean();
 		$content .= $form;
-
 	}
 	
 	return $content;
