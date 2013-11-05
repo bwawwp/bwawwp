@@ -7,6 +7,5 @@ var ajaxurl = '<?php echo admin_url("admin-ajax.php");?>';
 </script>
 <?php
 }
-if(!is_admin())
-    add_action('wp_head', 'my_wp_head_ajax_url');
+add_action('wp_head', 'my_wp_head_ajax_url');
 ?>
