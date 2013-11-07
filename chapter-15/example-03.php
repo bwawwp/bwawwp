@@ -7,6 +7,13 @@ Version: .1
 Author: strangerstudios
 */
 
+/*
+	Make sure to set FORCE_SSL_ADMIN to true.
+	Add the following to your wp-config.php:
+
+	define('FORCE_SSL_ADMIN', true);
+*/
+
 //redirect to https
 function always_https_redirect()
 {
