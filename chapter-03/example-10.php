@@ -27,7 +27,7 @@ function sp_setupDB()
 		dbDelta($sqlQuery);
 
 		$db_version = '1.0';
-		set_option('sp_db_version', '1.0');
+		update_option('sp_db_version', '1.0');
 	}
 }
 add_action('init', 'sp_dbSetup', 0);
