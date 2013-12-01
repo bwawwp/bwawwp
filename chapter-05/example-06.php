@@ -19,7 +19,8 @@ function schoolpress_homework_meta_box( $post ){
 	
 	// enqueue jquery date picker
 	wp_enqueue_script('jquery-ui-datepicker');
-	wp_enqueue_style('jquery-style', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css');
+	wp_enqueue_style('jquery-style',
+		'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css');
 
 	// set meta data if already exists
 	$is_required = get_post_meta( $post->ID, '_schoolpress_homework_is_required', 1 );
@@ -27,12 +28,12 @@ function schoolpress_homework_meta_box( $post ){
 	// output meta data fields
 	?>
 	<p>
-		<input type="checkbox" name="is_required" value="1" <?php checked( $is_required, '1' ); ?>>
-		This assignment is required.
+	<input type="checkbox" name="is_required" value="1" <?php checked( $is_required, '1' ); ?>>
+	This assignment is required.
 	</p>
 	<p>
-		Due Date:
-		<input type="text" name="due_date" id="due_date" value="<?php echo $due_date;?>">
+	Due Date:
+	<input type="text" name="due_date" id="due_date" value="<?php echo $due_date;?>">
 	</p>
 	<?php // attach jquery date picker to our due_date field?>
 	<script>

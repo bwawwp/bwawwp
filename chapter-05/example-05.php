@@ -20,7 +20,7 @@ function schoolpress_submissions_template_redirect(){
     	exit();
     }
 }
-// use the template_redirect hook to call a function that decides if the current
-// user can access the current homework submission
+// use the template_redirect hook to call a function that decides if the
+// current user can access the current homework submission
 add_action( 'template_redirect', 'schoolpress_submissions_template_redirect' );
 ?>

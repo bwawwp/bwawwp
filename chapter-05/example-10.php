@@ -51,7 +51,11 @@ class Homework
 		//fix lower scores
 		foreach($this->submissions as $submission)
 		{
-			update_post_meta($submission->ID, "score", min($maxscore, $submission->score + $curve));
+			update_post_meta( 
+				$submission->ID, 
+				"score", 
+				min( $maxscore, $submission->score + $curve )
+			);
 		}
 	}
 }

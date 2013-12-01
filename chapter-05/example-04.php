@@ -22,11 +22,15 @@ function schoolpress_the_content_homework_submission($content){
 	}
 
 	// Process the form submission if the user hasn't already
-	if ( !$submission_id && isset( $_POST['submit-homework-submission'] ) && isset( $_POST['homework-submission'] ) ) {
+	if ( !$submission_id && 
+			isset( $_POST['submit-homework-submission'] ) && 
+			isset( $_POST['homework-submission'] ) ) {
+
 		$submission = $_POST['homework-submission'];
+		$post_title = $post->post_title . ' - Submission by ' . $current_user->display_name;
 		// Insert the current users submission as a post into our submissions CPT.
 		$args = array(
-			'post_title'   => $post->post_title . ' - Submission by ' . $current_user->display_name,
+			'post_title'   => $post_title,
 			'post_content' => $submission,
 			'post_type'    => 'submissions',
 			'post_status'  => 'publish',
@@ -45,7 +49,10 @@ function schoolpress_the_content_homework_submission($content){
 	// Add a link to the user's submission if a submssion was already made
 	if( $submission_id ) {
 
-		$message = sprintf( __( 'Click %s here %s to view your submission to this homework assignment.', 'schoolpress' ), '<a href="' . get_permalink( $submission_id ) . '">', '</a>' );
+		$message = sprintf( __( 'Click %s here %s to view your submission to this homework assignment.',
+			'schoolpress' ), 
+			'<a href="' . get_permalink( $submission_id ) . '">',
+			'</a>' );
 		$message = '<div class="homework-submission-link">' . $message . '</div>';
 		$content .= $message;
 		
