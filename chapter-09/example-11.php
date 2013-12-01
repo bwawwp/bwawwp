@@ -5,13 +5,15 @@ function hbdemo_wp_footer()
 ?>
 <script>
   jQuery(document).ready(function() {    			
-		//hook into heartbeat-send: client will send the message 'marco' in the 'client' var inside the data array
+		//hook into heartbeat-send: client will send the message 
+		//'marco' in the 'client' var inside the data array
 		jQuery(document).on('heartbeat-send', function(e, data) {
 			console.log('Client: marco');
 			data['client'] = 'marco';	//need some data to kick off AJAX call
 		});
 		
-		//hook into heartbeat-tick: client looks for a 'server' var in the data array and logs it to console
+		//hook into heartbeat-tick: client looks for a 'server' 
+		//var in the data array and logs it to console
 		jQuery(document).on('heartbeat-tick', function(e, data) {			
 			if(data['server'])
 				console.log('Server: ' + data['server']);
@@ -26,3 +28,6 @@ function hbdemo_wp_footer()
 		});
 	});		
 </script>
+<?php
+}
+?>

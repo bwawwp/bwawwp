@@ -28,22 +28,22 @@ function my_wp_footer_registration_JavaScript()
             
         //check the username
         jQuery.ajax({
-        	url: ajaxurl,type:'GET',timeout:5000,
-    		dataType: 'html',
-    		data: "action=check_username&username="+username,
-    		error: function(xml){
-    			//timeout, but no need to scare the user   														
-    		},
-    		success: function(response){
-            //hide any flag we may have already shown
-            jQuery('#username_check').remove();
-             
-            //show if the username is good (1) or taken (0)
-            if(response == 1)
-                jQuery('#user_login').after('<span id="username_check" class="okay">Okay</span>');
-            else
-                jQuery('#user_login').after('<span id="username_check" class="taken">Already Taken</span>');            
-    		}
+    	url: ajaxurl,type:'GET',timeout:5000,
+		dataType: 'html',
+		data: "action=check_username&username="+username,
+		error: function(xml){
+			//timeout, but no need to scare the user   														
+		},
+		success: function(response){
+        //hide any flag we may have already shown
+        jQuery('#username_check').remove();
+         
+        //show if the username is good (1) or taken (0)
+        if(response == 1)
+            jQuery('#user_login').after('<span id="username_check" class="okay">Okay</span>');
+        else
+            jQuery('#user_login').after('<span id="username_check" class="taken">Taken</span>');            
+		}
     	});
     }
 </script>
