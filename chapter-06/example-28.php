@@ -1,15 +1,15 @@
 <?php
 function sp_user_profile( $user ){
     // show input
-    ?>
+    $age = esc_attr( $user->age );?>
     <table class="form-table">
     <tbody>
-        <tr>
-    		<th><label for="age">Age</label></th>
-    		<td>
-    			<input type="text" name="age" id="age" class="input" value="<?php echo esc_attr( $user->age ); ?>" size="10" />
-    		</td>
-    	</tr>
+    <tr>
+		<th><label for="age">Age</label></th>
+		<td>
+		<input type="text" name="age" id="age" class="input" value="<?php echo $age; ?>"/>
+		</td>
+	</tr>
     </tbody>
     </table>
     <?php  

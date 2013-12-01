@@ -1,6 +1,8 @@
 <?php
-$student = new Student();   // Student is a class that extends WP_User
+// Student is a class that extends WP_User
+$student = new Student();
 foreach( $student->getAssignments() as $assignment ) {
-    $assignment->print();   // assignment here is an instance of a class that extends WP_Post
+	// assignment here is an instance of a class that extends WP_Post
+    $assignment->print(); 
 }
 ?>

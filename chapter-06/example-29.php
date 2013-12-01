@@ -10,6 +10,8 @@ function sp_profile_update( $user_id ){
         update_user_meta( $user_id, 'age', intval( $_POST['age'] ) );				
     }
 }
-add_action( 'personal_options_update', 'sp_profile_update' );    // user's own profile
-add_action( 'edit_user_profile_update', 'sp_profile_update' );    // admins editing
+// user's own profile
+add_action( 'personal_options_update', 'sp_profile_update' );
+// admins editing
+add_action( 'edit_user_profile_update', 'sp_profile_update' );
 ?>

@@ -20,7 +20,7 @@ class Student extends WP_User {
         if ( $key == 'assignments' )
             return $this->getAssignments();
         else
-            return parent::__get( $key );     // fallback to default WP_User magic method
+            return parent::__get( $key ); // fallback to default WP_User magic method
     }    
 }
 ?>

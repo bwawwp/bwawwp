@@ -7,10 +7,11 @@ function sp_register_form(){
         $age = '';
         
     // show input
-    ?>
+    $age = esc_attr( $age );?>
     <p>
-    	<label for="age">Age<br />
-    	<input type="text" name="age" id="age" class="input" value="<?php echo esc_attr( $age ); ?>" size="10" /></label>
+    <label for="age">Age<br />
+    <input type="text" name="age" id="age" class="input" value="<?php echo $age ?>" />
+    </label>
     </p>
     <?php
 }
