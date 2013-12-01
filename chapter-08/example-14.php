@@ -15,7 +15,9 @@ add_action( 'wp_footer', 'schoolpress_footer_form' );
 
 // form action
 function schoolpress_footer_form_action(){
-	if ( isset( $_POST['submit_email'] ) && isset( $_POST['email_address'] ) && check_admin_referer( 'email_list_form', 'email_list_form_nonce' ) ) {
+	if ( isset( $_POST['submit_email'] ) 
+		&& isset( $_POST['email_address'] ) 
+		&& check_admin_referer( 'email_list_form', 'email_list_form_nonce' ) ) {
 		echo 'You submitted: ' . $_POST['email_address'];
 		// or process your form here...
 	}
