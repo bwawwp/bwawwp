@@ -1,17 +1,16 @@
 <?php
-//setup the database for the SchoolPress app
-function sp_setupDB()
-{
+// setup the database for the SchoolPress app
+function sp_setupDB() {
 	global $wpdb;
 
-	//shortcuts for SchoolPress DB tables
-	$wpdb->schoolpress_assignment_submissions = $wpdb->prefix . 'schoolpress_assignment_submissions';
+	// shortcuts for SchoolPress DB tables
+	$wpdb->schoolpress_assignment_submissions = $wpdb->prefix .
+		'schoolpress_assignment_submissions';
 
-	$db_version = get_option('sp_db_version', 0);
-	
-	//create tables on new installs
-	if(empty($db_version))
-	{
+	$db_version = get_option( 'sp_db_version', 0 );
+
+	// create tables on new installs
+	if ( empty( $db_version ) ) {
 		global $wpdb;
 
 		$sqlQuery = "
@@ -23,11 +22,12 @@ function sp_setupDB()
 		)
 		";
 
-		require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
-		dbDelta($sqlQuery);
+		require_once ABSPATH . 'wp-admin/includes/upgrade.php';
+		dbDelta( $sqlQuery );
 
 		$db_version = '1.0';
-		update_option('sp_db_version', '1.0');
+		update_option( 'sp_db_version', '1.0' );
 	}
 }
-add_action('init', 'sp_dbSetup', 0);
+add_action( 'init', 'sp_dbSetup', 0 );
+?>

@@ -5,3 +5,4 @@ function my_filtered_title( $value, $id ) {
 	$value = '[' . $value . ']';
 	return $value;
 }
+?>
