@@ -5,7 +5,8 @@ function schoolpress_get_email( $email ) {
 	return $dir . $image;
 }
 
-// Filters the schoolpress_emails_path value based on locale. Put this in includes/localization.php
+// Filters the schoolpress_emails_path value based on locale. 
+// Put this in includes/localization.php
 function localize_schoolpress_emails_path( $path ) {
 	$locale = apply_filters( 'plugin_locale', get_locale(), 'schoolpress' );
 	if ( $locale != 'en_US' )
