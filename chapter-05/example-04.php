@@ -27,7 +27,8 @@ function schoolpress_the_content_homework_submission($content){
 			isset( $_POST['homework-submission'] ) ) {
 
 		$submission = $_POST['homework-submission'];
-		$post_title = $post->post_title . ' - Submission by ' . $current_user->display_name;
+		$post_title = $post->post_title; 
+		$post_title .= ' - Submission by ' . $current_user->display_name;
 		// Insert the current users submission as a post into our submissions CPT.
 		$args = array(
 			'post_title'   => $post_title,
@@ -40,7 +41,10 @@ function schoolpress_the_content_homework_submission($content){
 		// add post meta to tie this submission post to the homework post
 		add_post_meta( $submission_id, '_submission_homework_id', $post->ID );
 		// create a custom message
-		$message = __( 'Your homework has been submitted and is awaiting review.', 'schoolpress' );
+		$message = __( 
+			'Your homework has been submitted and is awaiting review.', 
+			'schoolpress' 
+		);
 		$message = '<div class="homework-submission-message">' . $message . '</div>';
 		// drop message before the filtered $content variable
 		$content = $message . $content;
@@ -49,7 +53,8 @@ function schoolpress_the_content_homework_submission($content){
 	// Add a link to the user's submission if a submssion was already made
 	if( $submission_id ) {
 
-		$message = sprintf( __( 'Click %s here %s to view your submission to this homework assignment.',
+		$message = sprintf( __( 
+			'Click %s here %s to view your submission to this homework assignment.',
 			'schoolpress' ), 
 			'<a href="' . get_permalink( $submission_id ) . '">',
 			'</a>' );
@@ -63,7 +68,9 @@ function schoolpress_the_content_homework_submission($content){
 		?>
 		<h3><?php _e( 'Submit your Homework below!', 'schoolpress' );?></h3>
 		<form method="post">
-		<?php wp_editor( '', 'homework-submission', array( 'media_buttons' => false ) );?>
+		<?php 
+		wp_editor( '', 'homework-submission', array( 'media_buttons' => false ) );
+		?>
 		<input type="submit" name="submit-homework-submission" value="Submit" />
 		</form>
 		<?php 
