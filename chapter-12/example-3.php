@@ -22,7 +22,7 @@ function wds_get_aws_products() {
 	$params['Timestamp'] = gmdate( "Y-m-d\TH:i:s.\\0\\0\\0\\Z", time() );
 	$url_parts = array();
 	foreach ( array_keys( $params ) as $key )
-		$url_parts[] = $key . "=" . str_replace( '%7E', '~', rawurlencode( $params[$key] ) );
+		$url_parts[] = $key . '=' . str_replace( '%7E', '~', rawurlencode($params[$key]) );
 
 	sort( $url_parts );
 	$url_string = implode( "&", $url_parts );

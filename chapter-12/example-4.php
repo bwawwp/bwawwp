@@ -6,10 +6,11 @@ require_once 'lib/twitteroauth.php';
 
 
 // Copy over credentials from the Twitter App you created.
-define( 'CONSUMER_KEY', '0UKP3bLU1wUibccx2NFlK' );
-define( 'CONSUMER_SECRET', 'KGYQnbldACazetPLwvZcyyk2yZlZaNPqdg2INprRqbo' );
-define( 'ACCESS_TOKEN', '11018212-3qMnqt8AvF0PeEoNlfyH9huqCzyVD4HpCb2oK1kAW' );
-define( 'ACCESS_TOKEN_SECRET', 'jUMC4xRFh3Ocmd7L9TpRj3Oeby6Yx7JVZ5eiCbiIyjc' );
+// the below are not real keys & secrets
+define( 'CONSUMER_KEY', '0UKP3bUibccx2NFLU1wlK' );
+define( 'CONSUMER_SECRET', 'KGYQnbldACazyyk2yZlZaNPetPLwvZcqdg2INprRqbo' );
+define( 'TOKEN', '11018212-3qMnqt8AvF0PeyH9huqCzEoNlfyVD4HpCb2oK1kAW' );
+define( 'TOKEN_SECRET', 'jUMC4xRFh33Oeby6Yx7JVZ5Ocmd7L9TpRjeiCbiIyjc' );
 
 add_action( 'init', 'sp_twitter_search' );
 function sp_twitter_search() {
@@ -17,7 +18,7 @@ function sp_twitter_search() {
 	$q = 'bwawwp';
 
 	// call TwitterOAuth and pass in Twitter credentials.
-	$toa = new TwitterOAuth( CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET );
+	$toa = new TwitterOAuth( CONSUMER_KEY, CONSUMER_SECRET, TOKEN, TOKEN_SECRET );
 
 	// call the search tweets method
 	$search = $toa->get( 'search/tweets', array( 'q' => $q ) );
