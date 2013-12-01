@@ -6,8 +6,10 @@ print_r($browser);
 	Would produce output like:
 	
 	stdClass Object ( 
-[browser_name_regex] => §^mozilla/5\.0 \(.*intel mac os x.*\) applewebkit/.* \(khtml, like gecko\).*chrome/28\..*safari/.*$§ 
-[browser_name_pattern] => Mozilla/5.0 (*Intel Mac OS X*) AppleWebKit/* (KHTML, like Gecko)*Chrome/28.*Safari/* 
+[browser_name_regex] => §^mozilla/5\.0 \(.*intel mac os x.*\) 
+applewebkit/.* \(khtml, like gecko\).*chrome/28\..*safari/.*$§ 
+[browser_name_pattern] => Mozilla/5.0 (*Intel Mac OS X*) 
+AppleWebKit/* (KHTML, like Gecko)*Chrome/28.*Safari/* 
 [parent] => Chrome 28.0 
 [platform] => MacOSX 
 [win32] => 
