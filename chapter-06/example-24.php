@@ -16,11 +16,16 @@ class Student extends WP_User {
     }
     
     // magic method to detect $student->assignments
-    function __get( $key ){
+    function __get( $key ) {
         if ( $key == 'assignments' )
+        {
             return $this->getAssignments();
+        }
         else
-            return parent::__get( $key ); // fallback to default WP_User magic method
+        {
+            // fallback to default WP_User magic method
+            return parent::__get( $key );
+        }
     }    
 }
 ?>
