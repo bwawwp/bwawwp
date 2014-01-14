@@ -4,7 +4,8 @@ function sp_manage_users_sortable_columns( $columns ){
     $columns['age'] = 'Age';
 	return $columns;
 }
-add_filter( 'manage_users_sortable_columns', 'sp_manage_users_sortable_columns' );
+add_filter( 'manage_users_sortable_columns', 
+	'sp_manage_users_sortable_columns');
 
 // update user_query if sorting by Age
 function sp_pre_user_query( $user_query ){
