@@ -14,5 +14,6 @@ function sp_manage_users_custom_column( $value, $column_name, $user_id ){
         
     return $value;
 }
-add_filter( 'manage_users_custom_column', 'sp_manage_users_custom_column', 10, 3);
+add_filter('manage_users_custom_column', 
+    'sp_manage_users_custom_column', 10, 3);
 ?>
