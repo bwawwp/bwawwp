@@ -2,9 +2,10 @@
 /*
   shortcode callback for [msg] shortcode
   Example: [msg type="error"]This is an error message.[/msg]
-  Output: <div class="message message-error">
-  	  	<p>This is an error message.</p>
-  	  </div>
+  Output: 
+  <div class="message message-error">
+      <p>This is an error message.</p>
+  </div>
 */
 function sp_msg_shortcode($atts, $content) 
 {
