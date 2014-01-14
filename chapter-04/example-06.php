@@ -10,7 +10,8 @@ function sp_invite_students_shortcode($atts, $content=null, $code='')
 	
 	//if not found, use the default
 	if(empty($template))
-		$template = dirname(__FILE__) . '/../templates/invite-students.php';
+		$template = dirname(__FILE__) . 
+			'/../templates/invite-students.php';
 
 	//load the template
 	load_template($template);
