@@ -7,7 +7,8 @@ function sp_user_profile( $user ){
     <tr>
 		<th><label for="age">Age</label></th>
 		<td>
-		<input type="text" name="age" id="age" class="input" value="<?php echo $age; ?>"/>
+		<input type="text" name="age" id="age" class="input" 
+			value="<?php echo $age; ?>"/>
 		</td>
 	</tr>
     </tbody>
