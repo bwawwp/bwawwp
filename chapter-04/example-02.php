@@ -10,7 +10,7 @@ $main_post_id = $post->ID;
 //use the default page template
 require_once(dirname(__FILE__) . "/page.php");
 
-//now add some page content using a function called during the the_content hook
+//now add content using a function called during the the_content hook
 function template_content($content)
 {
     global $post, $main_post_id;
