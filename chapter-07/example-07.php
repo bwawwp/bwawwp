@@ -14,7 +14,8 @@ echo "<pre>";
 //loop through theme directories and print theme info
 foreach(glob("*", GLOB_ONLYDIR) as $dir)
 {
-	$plugin = get_plugin_data($plugins_dir . "/" . $dir . "/" . $dir . ".php", false, false);
+	$plugin = get_plugin_data($plugins_dir . 
+		"/" . $dir . "/" . $dir . ".php", false, false);
 	print_r($plugin);
 }
 
