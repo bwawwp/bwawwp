@@ -2,7 +2,7 @@
 /*
 Plugin Name: JS Display Name
 Plugin URI: http://bwawwp.com/js-display-name/
-Description: A way to load the display name of a logged-in user through JavaScript
+Description: A way to load the display name of a logged-in user through JS
 Version: .1
 Author: Jason Coleman
 Author URI: http://bwawwp.com
@@ -19,7 +19,10 @@ function jsdn_show_display_name($prefix = "Welcome,&nbsp;")
 {
 ?>
 <p>
-	<script src="<?php echo admin_url("/admin-ajax.php?action=jsdn_show_display_name&prefix=" . urlencode($prefix));?>"></script>
+	<script src="<?php echo admin_url(
+        "/admin-ajax.php?action=jsdn_show_display_name&prefix=" . 
+            urlencode($prefix)
+        );?>"></script>
 </p>
 <?php
 }
@@ -46,3 +49,4 @@ function jsdn_wp_ajax()
 }
 add_action('wp_ajax_jsdn_show_display_name', 'jsdn_wp_ajax');
 add_action('wp_ajax_nopriv_jsdn_show_display_name', 'jsdn_wp_ajax');
+?>
