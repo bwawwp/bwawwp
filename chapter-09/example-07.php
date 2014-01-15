@@ -4,8 +4,11 @@ function wp_ajax_check_username() {
 	global $wpdb;
 	$username = $_REQUEST['username'];
 
-	$taken = $wpdb->get_var( "SELECT user_login FROM $wpdb->users 
-		WHERE user_login = '" . $wpdb->escape( $username ) . "' LIMIT 1" );
+	$taken = $wpdb->get_var( "
+		SELECT user_login 
+		FROM $wpdb->users 
+		WHERE user_login = '" . $wpdb->escape( $username ) . "' LIMIT 1" 
+		);
 
 	if ( $taken )
 		echo "0";   //taken
