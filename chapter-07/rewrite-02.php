@@ -43,7 +43,8 @@ function wpdoc_template_redirect() {
 
 		//headers for MS Word
 		header('Content-type: application/vnd.ms-word');
-		header('Content-Disposition: attachment;Filename='.$post->post_name.'.doc');
+		header('Content-Disposition: attachment;Filename='.
+			$post->post_name.'.doc');
 
 		//html
 		?>
