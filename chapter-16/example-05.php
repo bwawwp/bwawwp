@@ -20,7 +20,10 @@ function sp_update_assignments_table($post_id)
   );
 
   //look for an existing assignment
-  $assignment_id = $wpdb->get_var("SELECT id FROM wp_sp_assignments WHERE post_id = '" . $post_id . "' LIMIT 1");
+  $assignment_id = $wpdb->get_var("SELECT id 
+                                    FROM wp_sp_assignments 
+                                    WHERE post_id = '" . $post_id . "' 
+                                    LIMIT 1");
 
   //if no assignment id, this is a new assignment
   if(empty($assignment_id))
