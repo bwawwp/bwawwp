@@ -21,7 +21,8 @@ function always_https_redirect()
 	if(force_ssl_admin() && !is_ssl())
 	{
 		//redirect to https version of the page
-		wp_redirect("https://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
+		wp_redirect("https://" . $_SERVER['HTTP_HOST'] . 
+			$_SERVER['REQUEST_URI']);
 		exit;
 	}
 }
