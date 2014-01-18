@@ -23,7 +23,8 @@ function schoolpress_maxmind(){
     */
 
     // MaxMind request URL
-    $query = 'https://geoip.maxmind.com/' . $service . '?' . http_build_query( $params );
+    $query = 'https://geoip.maxmind.com/';
+    $query.= $service . '?' . http_build_query( $params );
     // Get response from the URL
     $response = wp_remote_get( $query );
     $results = $response['body'];

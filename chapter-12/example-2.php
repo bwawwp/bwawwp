@@ -20,9 +20,18 @@ function sp_directions_meta_box( $post='' ) {
     // Get curretn post ID
     $post_id = $post->ID;
     // Get pos meta data if exists
-    $sp_directions_address = get_post_meta( $post_id, '_sp_directions_address', true );
-    $sp_directions_latitude = get_post_meta( $post_id, '_sp_directions_latitude', true );
-    $sp_directions_longitude = get_post_meta( $post_id, '_sp_directions_longitude', true );
+    $sp_directions_address = get_post_meta( $post_id, 
+        '_sp_directions_address', 
+        true 
+    );
+    $sp_directions_latitude = get_post_meta( $post_id, 
+        '_sp_directions_latitude', 
+        true 
+    );
+    $sp_directions_longitude = get_post_meta( $post_id, 
+        '_sp_directions_longitude', 
+        true 
+    );
     // Output text box to collect any address?>
     <input type="text" 
         id="sp_directions_address" 
@@ -68,7 +77,7 @@ function sp_directions_meta_box( $post='' ) {
         <?php echo $sp_directions_latitude;?>,
         <?php echo $sp_directions_longitude;?>)});
 
-    google.maps.event.addListener(marker<?php echo $post_id;?>, 'dragend', function() {
+    google.maps.event.addListener(marker<?php echo $post_id;?>,'dragend',function(){
       updateMarkerPosition(marker<?php echo $post_id;?>.getPosition());
     });
 

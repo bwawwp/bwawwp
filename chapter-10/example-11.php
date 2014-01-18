@@ -9,7 +9,13 @@ function bwawwp_xmlrpc_getUsers() {
     echo '</pre>';
     $filter = array( 'role' => 'administrator' );
     $fields = array( 'username', 'email' );
-    $rpc->query( 'wp.getUsers', 0, $xmlrpc_user, $xmlrpc_pass, $filter, $fields );
+    $rpc->query( 'wp.getUsers', 
+        0, 
+        $xmlrpc_user, 
+        $xmlrpc_pass, 
+        $filter, 
+        $fields 
+    );
     echo '<h1>Filtered Users</h1>';
     echo '<pre>';
     print_r( $rpc->getResponse() );

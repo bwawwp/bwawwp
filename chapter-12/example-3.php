@@ -21,15 +21,22 @@ function wds_get_aws_products() {
 
 	$params['Timestamp'] = gmdate( "Y-m-d\TH:i:s.\\0\\0\\0\\Z", time() );
 	$url_parts = array();
-	foreach ( array_keys( $params ) as $key )
-		$url_parts[] = $key . '=' . str_replace( '%7E', '~', rawurlencode($params[$key]) );
+	foreach ( array_keys( $params ) as $key ) {
+		$part = str_replace( '%7E', '~', rawurlencode( $params[ $key ] ) );
+		$url_parts[] = $key . '=' . $part;
+	}
 
 	sort( $url_parts );
 	$url_string = implode( "&", $url_parts );
 	$string_to_sign = "GET\necs.amazonaws.com\n/onca/xml\n" . $url_string;
-	$signature = hash_hmac( "sha256", $string_to_sign, $AWSSecretAccessKey, TRUE );
+	$signature = hash_hmac( "sha256", 
+		$string_to_sign, 
+		$AWSSecretAccessKey, 
+		TRUE 
+	);
 	$signature = urlencode( base64_encode( $signature ) );
-	$url = 'http://ecs.amazonaws.com/onca/xml?' . $url_string . "&Signature=" . $signature;
+	$url = 'http://ecs.amazonaws.com/onca/xml?';
+	$url.= $url_string . "&Signature=" . $signature;
 	$response = file_get_contents( $url );
 
 	$xml = simplexml_load_string( $response );

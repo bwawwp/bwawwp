@@ -27,7 +27,13 @@ function bwawwp_xmlrpc_getPosts() {
         'order'   => 'ASC'
     );
     $fields = array( 'post_title' );
-    $rpc->query( 'wp.getPosts', 0, $xmlrpc_user, $xmlrpc_pass, $filter, $fields );
+    $rpc->query( 'wp.getPosts', 
+        0, 
+        $xmlrpc_user, 
+        $xmlrpc_pass, 
+        $filter, 
+        $fields 
+    );
     echo '<h1>5 published page titles</h1>';
     echo '<pre>';
     print_r( $rpc->getResponse() );

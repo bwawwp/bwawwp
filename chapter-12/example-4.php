@@ -18,7 +18,11 @@ function sp_twitter_search() {
 	$q = 'bwawwp';
 
 	// call TwitterOAuth and pass in Twitter credentials.
-	$toa = new TwitterOAuth( CONSUMER_KEY, CONSUMER_SECRET, TOKEN, TOKEN_SECRET );
+	$toa = new TwitterOAuth( CONSUMER_KEY, 
+		CONSUMER_SECRET, 
+		TOKEN, 
+		TOKEN_SECRET 
+	);
 
 	// call the search tweets method
 	$search = $toa->get( 'search/tweets', array( 'q' => $q ) );

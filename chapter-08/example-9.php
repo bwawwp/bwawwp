@@ -21,5 +21,4 @@ if ( ! $user_email )
 	echo 'invalid email<br>';
 else
 	echo 'valid email: ' . $user_email;
-
 ?>
