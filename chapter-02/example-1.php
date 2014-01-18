@@ -10,7 +10,13 @@ print_r( $bwawwp_twitter_accounts );
 echo '</pre>';
 
 // update option
-$twitters = array_merge( $twitters, array( '@webdevstudios', '@strangerstudios' ) );
+$twitters = array_merge( 
+	$twitters, 
+	array( 
+		'@webdevstudios', 
+		'@strangerstudios' 
+	) 
+);
 update_option( 'bwawwp_twitter_accounts', $twitters );
 
 // get option

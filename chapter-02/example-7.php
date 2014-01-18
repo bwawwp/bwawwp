@@ -6,7 +6,12 @@ foreach ( $comments as $comment ) {
 
 	// add comment meta - meta for view date & ip address
 	$viewed = array( date( "m.d.y" ), $_SERVER["REMOTE_ADDR"] );
-	$comment_meta_id = add_comment_meta( $comment_id, 'bwawwp_view_date', $viewed, true );
+	$comment_meta_id = add_comment_meta( 
+		$comment_id, 
+		'bwawwp_view_date', 
+		$viewed, 
+		true 
+	);
 	echo 'comment meta id: ' . $comment_meta_id;
 
 	// update comment meta - change date format to fomrat like 
@@ -31,7 +36,8 @@ Array
 (
     [bwawwp_view_date] => Array
         (
-            [0] => a:2:{i:0;s:24:"August 11, 2013, 4:16 pm";i:1;s:9:"127.0.0.1";}
+            [0] => a:2:{i:0;s:24:"August 11, 2013, 4:16 pm";
+            i:1;s:9:"127.0.0.1";}
         )
 
 )

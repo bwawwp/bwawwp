@@ -9,7 +9,7 @@ function schoolpress_the_content_homework_submission($content){
 	if ( ! is_single() || $post->post_type != 'homework' || ! $current_user )
 		return $content;
 
-	// check if the current user has already made a submission to this homework assignment
+	// get current user's submission to this homework assignment
 	$submissions = get_posts( array( 
 		'post_author'    => $current_user->ID, 
 		'posts_per_page' => '1', 
@@ -29,7 +29,7 @@ function schoolpress_the_content_homework_submission($content){
 		$submission = $_POST['homework-submission'];
 		$post_title = $post->post_title; 
 		$post_title .= ' - Submission by ' . $current_user->display_name;
-		// Insert the current users submission as a post into our submissions CPT.
+		// Insert submission as a post into our submissions CPT.
 		$args = array(
 			'post_title'   => $post_title,
 			'post_content' => $submission,
@@ -39,39 +39,47 @@ function schoolpress_the_content_homework_submission($content){
 		);
 		$submission_id = wp_insert_post( $args );
 		// add post meta to tie this submission post to the homework post
-		add_post_meta( $submission_id, '_submission_homework_id', $post->ID );
+		add_post_meta( $submission_id, 
+			'_submission_homework_id', 
+			$post->ID 
+		);
 		// create a custom message
 		$message = __( 
-			'Your homework has been submitted and is awaiting review.', 
+			'Homework submitted and is awaiting review.', 
 			'schoolpress' 
 		);
-		$message = '<div class="homework-submission-message">' . $message . '</div>';
+		$message = '<div class="message">' . $message . '</div>';
 		// drop message before the filtered $content variable
 		$content = $message . $content;
 	}
 
-	// Add a link to the user's submission if a submssion was already made
+	// Add a link to the user's submission
 	if( $submission_id ) {
 
 		$message = sprintf( __( 
-			'Click %s here %s to view your submission to this homework assignment.',
+			'Click %s here %s to view your submission.',
 			'schoolpress' ), 
 			'<a href="' . get_permalink( $submission_id ) . '">',
 			'</a>' );
-		$message = '<div class="homework-submission-link">' . $message . '</div>';
+		$message = '<div class="link">' . $message . '</div>';
 		$content .= $message;
 		
-	// Add a basic submission form after the $content variable being filtered.
+	// Add a form after the $content variable being filtered.
 	} else {
 		
 		ob_start();
 		?>
-		<h3><?php _e( 'Submit your Homework below!', 'schoolpress' );?></h3>
+		<h3>
+		<?php _e( 'Submit your Homework below!', 'schoolpress' );?>
+		</h3>
 		<form method="post">
 		<?php 
-		wp_editor( '', 'homework-submission', array( 'media_buttons' => false ) );
+		wp_editor( '', 
+			'homework-submission', 
+			array( 'media_buttons' => false ) 
+		);
 		?>
-		<input type="submit" name="submit-homework-submission" value="Submit" />
+		<input type="submit" name="homework-submission" value="Submit" />
 		</form>
 		<?php 
 		$form = ob_get_contents();
@@ -82,6 +90,9 @@ function schoolpress_the_content_homework_submission($content){
 	return $content;
 
 }
-// add a filter on 'the_content' so we can run our custom code to deal with homework submissions
-add_filter( 'the_content', 'schoolpress_the_content_homework_submission', 999 );
+// add a filter on 'the_content' to run our homework submissions code
+add_filter( 'the_content', 
+	'schoolpress_the_content_homework_submission', 
+	999 
+);
 ?>

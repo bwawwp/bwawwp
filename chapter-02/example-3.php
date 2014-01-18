@@ -3,13 +3,19 @@
 $brian_id = get_user_by( 'login', 'brian' )->ID;
 
 // add user meta - unique is set to true. no polygamy! only one wife at a time.
-add_user_meta( $brian_id, 'bwawwp_wife', 'Robin Jade Morales Messenlehner', true);
+add_user_meta( 
+	$brian_id, 
+	'bwawwp_wife', 
+	'Robin Jade Morales Messenlehner', 
+	true
+);
 
 // get user meta - returning a single value
 $brians_wife = get_user_meta( $brian_id, 'bwawwp_wife', true);
 echo "Brian's wife: " . $brians_wife . "<br>";
 
-// add user meta - no 3rd parameter/unique. can have as many kids as wife will let me.
+// add user meta - no 3rd parameter/unique. 
+// can have as many kids as wife will let me.
 add_user_meta( $brian_id, 'bwawwp_kid', 'Dalya' );
 add_user_meta( $brian_id, 'bwawwp_kid', 'Brian' );
 add_user_meta( $brian_id, 'bwawwp_kid', 'Nina' );
@@ -31,7 +37,7 @@ delete_user_meta( $brian_id, 'bwawwp_kid' );
 // get jason's id
 $jason_id = get_user_by( 'login', 'jason' )->ID;
 
-// update user meta - this will create meta if the key doesn't exist for the user.
+// update user meta - creates user meta if key doesn't exist for the user.
 update_user_meta( $jason_id, 'bwawwp_wife', 'Kimberly Ann Coleman' );
 
 // get user meta - returning an array

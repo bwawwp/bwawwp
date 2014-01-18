@@ -2,7 +2,7 @@
 // insert post
 $args = array(
 	'post_title'   => '5 year anniversary on 9/10/16',
-	'post_content' => 'Think of somthing cool to do and make a comment about it!',
+	'post_content' => 'Think of somthing cool to do, make a comment!',
 	'post_status'  => 'publish'
 );
 $post_id = wp_insert_post( $args );
@@ -62,7 +62,8 @@ foreach ( $comments as $comment ) {
 	if ( $comment_ids[0] == $comment->comment_ID ) {
 		$commentarr = array(
 			'comment_ID' => $comment->comment_ID,
-			'comment_content' => $comment->comment_content . ' & make a baby!',
+			'comment_content' => $comment->comment_content . 
+			' & make a baby!',
 		);
 		wp_update_comment( $commentarr );
 		// delete all other comments
