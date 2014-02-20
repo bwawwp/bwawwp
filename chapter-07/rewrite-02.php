@@ -15,7 +15,7 @@ function wpdoc_activation() {
 	add_rewrite_endpoint( 'doc', EP_PERMALINK | EP_PAGES );
 	flush_rewrite_rules();
 }
-register_activation_hook( 'wpdoc_activation' );
+register_activation_hook( __FILE__, 'wpdoc_activation' );
 
 //and init in case another plugin flushes, but don't flush cause it's expensive
 function wpdoc_init() {
