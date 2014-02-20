@@ -9,7 +9,7 @@ function sp_activation()
 	);
 	flush_rewrite_rules();
 }
-register_activation_hook('sp_activation');
+register_activation_hook(__FILE__, 'sp_activation');
 
 /*
   Add rule on init in case another plugin flushes,
@@ -30,5 +30,5 @@ function sp_deactivation()
 {
 	flush_rewrite_rules();
 }
-register_deactivation_hook('sp_deactivation');
+register_deactivation_hook(__FILE__, 'sp_deactivation');
 ?>
