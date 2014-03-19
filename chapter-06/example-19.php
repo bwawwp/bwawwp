@@ -1,7 +1,7 @@
 <?php
 function sp_roles_and_caps() {
     // Office Manager Role   
-    delete_role('office');      // in case we updated the caps below
+    remove_role('office');      // in case we updated the caps below
     add_role( 'office', 'Office Manager', array(
     	'read' => true,	
     	'create_users' => true,
