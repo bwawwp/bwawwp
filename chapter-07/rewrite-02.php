@@ -27,7 +27,7 @@ add_action( 'init', 'wpdoc_init' );
 function wpdoc_deactivation() {
 	flush_rewrite_rules();
 }
-register_deactivation_hook( 'wpdoc_deactivation' );
+register_deactivation_hook( __FILE__, 'wpdoc_deactivation' );
 
 /*
 	Detect /doc/ use and return a .doc file.
