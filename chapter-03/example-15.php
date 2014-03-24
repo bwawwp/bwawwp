@@ -22,6 +22,7 @@ $wpdb->insert(
 
 /*
 	This insert call will generate a SQL query like:
-	()
+		INSERT INTO `wp_schoolpress_asignment_submissions`
+		(`assignment_id`,`submission_id`) VALUES (101,10)
 */
 ?>
