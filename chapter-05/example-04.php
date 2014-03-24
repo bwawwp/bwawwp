@@ -92,7 +92,7 @@ function schoolpress_the_content_homework_submission($content){
 }
 // add a filter on 'the_content' to run our homework submissions code
 add_filter( 'the_content', 
-	'schoolpress_the_content_homework_submission', 
+	'schoolpress_the_content_homework_submission',
 	999 
 );
 ?>
