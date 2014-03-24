@@ -12,7 +12,7 @@ function schoolpress_the_content_homework_submission($content){
 	// get current user's submission to this homework assignment
 	$submissions = get_posts( array( 
 		'post_author'    => $current_user->ID, 
-		'posts_per_page' => '1', 
+		'posts_per_page' => '1',
 		'post_type'      => 'submissions', 
 		'meta_key'       => '_submission_homework_id', 
 		'meta_value'     => $post->ID  
