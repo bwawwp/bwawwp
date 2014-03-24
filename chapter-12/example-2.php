@@ -77,9 +77,15 @@ function sp_directions_meta_box( $post='' ) {
         <?php echo $sp_directions_latitude;?>,
         <?php echo $sp_directions_longitude;?>)});
 
-    google.maps.event.addListener(marker<?php echo $post_id;?>,'dragend',function(){
-      updateMarkerPosition(marker<?php echo $post_id;?>.getPosition());
-    });
+    google.maps.event.addListener(
+      marker<?php echo $post_id;?>,
+      'dragend',
+      function(){
+        updateMarkerPosition(
+            marker<?php echo $post_id;?>.getPosition())
+        ;
+      }
+    );
 
     map.fitBounds(bounds);
     }
