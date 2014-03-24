@@ -2,7 +2,7 @@
 // function for adding a custom meta box
 function schoolpress_homework_add_meta_boxes(){
 	
-	add_meta_box(
+    add_meta_box(
         'homework_meta',
         'Additonal Homework Info',
         'schoolpress_homework_meta_box',
@@ -16,39 +16,41 @@ add_action( 'add_meta_boxes', 'schoolpress_homework_add_meta_boxes' );
 
 // this is the callback function called from add_meta_box
 function schoolpress_homework_meta_box( $post ){
-	// doing this so the url will fit in the book ;)
-	$jquery_url = 'http://ajax.googleapis.com/ajax/libs/';
-	$jquery_url.= 'jqueryui/1.8.2/themes/smoothness/jquery-ui.css';
-	// enqueue jquery date picker
-	wp_enqueue_script( 'jquery-ui-datepicker' );
-	wp_enqueue_style( 'jquery-style', $jquery_url );
+    // doing this so the url will fit in the book ;)
+    $jquery_url = 'http://ajax.googleapis.com/ajax/libs/';
+    $jquery_url.= 'jqueryui/1.8.2/themes/smoothness/jquery-ui.css';
 
-	// set meta data if already exists
-	$is_required = get_post_meta( $post->ID, 
-		'_schoolpress_homework_is_required', 1 );
-	$due_date = get_post_meta( $post->ID, 
-		'_schoolpress_homework_due_date', 1 );
-	// output meta data fields
-	?>
-	<p>
-	<input type="checkbox" 
-	name="is_required" value="1" <?php checked( $is_required, '1' ); ?>>
-	This assignment is required.
-	</p>
-	<p>
-	Due Date:
-	<input type="text" 
-	name="due_date" id="due_date" value="<?php echo $due_date;?>">
-	</p>
-	<?php // attach jquery date picker to our due_date field?>
-	<script>
-	jQuery(document).ready(function() {
-	    jQuery('#due_date').datepicker({
-	        dateFormat : 'mm/dd/yy'
-	    });
-	});
-	</script>
-	<?php
+    // enqueue jquery date picker
+    wp_enqueue_script( 'jquery-ui-datepicker' );
+    wp_enqueue_style( 'jquery-style', $jquery_url );
+
+    // set meta data if already exists
+    $is_required = get_post_meta( $post->ID, 
+	    '_schoolpress_homework_is_required', 1 );
+
+    $due_date = get_post_meta( $post->ID, 
+	    '_schoolpress_homework_due_date', 1 );
+    // output meta data fields
+    ?>
+    <p>
+    <input type="checkbox" 
+    name="is_required" value="1" <?php checked( $is_required, '1' ); ?>>
+    This assignment is required.
+    </p>
+    <p>
+    Due Date:
+    <input type="text" 
+    name="due_date" id="due_date" value="<?php echo $due_date;?>">
+    </p>
+    <?php // attach jquery date picker to our due_date field?>
+    <script>
+    jQuery(document).ready(function() {
+        jQuery('#due_date').datepicker({
+            dateFormat : 'mm/dd/yy'
+        });
+    });
+    </script>
+    <?php
 }
 
 // function for saving custom meta data to the database
