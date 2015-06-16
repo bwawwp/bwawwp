@@ -12,7 +12,7 @@ jQuery('#button').click(function() {
     	},
     	success: function(response){
             //success stuff                        
-    	}
+    	},
         complete: function() {
             //enable the button again
             jQuery('#button').removeAttr('disabled');
