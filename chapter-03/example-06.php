@@ -3,8 +3,8 @@
 function sp_stub_preheader() {
 	if ( !is_admin() ) {
 		global $post, $current_user;
-		if ( !empty( $post->post_content )
-			&& strpos( $post->post_content, "[sp_stub]" ) !== false ) {
+		if ( !empty( $post->post_content ) && strpos
+		   ( $post->post_content, '[sp_stub]' ) !== false ) {
 			/*
 				Put your preheader code here.
 			*/

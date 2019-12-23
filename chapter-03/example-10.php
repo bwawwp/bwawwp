@@ -1,5 +1,5 @@
 <?php
-// setup the database for the SchoolPress app
+// set up the database for the SchoolPress app
 function sp_setupDB() {
 	global $wpdb;
 
@@ -17,8 +17,8 @@ function sp_setupDB() {
 		CREATE TABLE '" . $wpdb->schoolpress_assignment_submissions . "' (
 		  `assignment_id` bigint(11) unsigned NOT NULL,
 		  `submission_id` bigint(11) unsigned NOT NULL,
-		  UNIQUE KEY `assignment_submission` (`assignment_id`,`submission_id`),
-		  UNIQUE KEY `submission_assignment` (`submission_id`,`assignment_id`)
+		UNIQUE KEY `assignment_submission` (`assignment_id`,`submission_id`),
+		UNIQUE KEY `submission_assignment` (`submission_id`,`assignment_id`)
 		)
 		";
 
