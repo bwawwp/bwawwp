@@ -16,7 +16,7 @@ class Homework {
 	}
 
 	//register CPT and Taxonomies on init
-	function init() {
+	public static function init() {
 		//homework CPT
 		register_post_type(
 			'homework',
