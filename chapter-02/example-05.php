@@ -1,23 +1,18 @@
 <?php
 // get posts - return the latest post
-$posts = get_posts( 
-	array( 
-		'posts_per_page' => '1', 
-		'orderby' => 'post_date', 
-		'order' => 'DESC' 
-	) 
-);
+$posts = get_posts( array( 'numberposts' => '1', 'orderby' =>
+    'post_date', 'order' => 'DESC' ) );
 foreach ( $posts as $post ) {
 	$post_id = $post->ID;
 
-	// update post meta - public meta data
+	// update post meta - public metadata
 	$content = 'You SHOULD see this custom field when editing your latest post.';
 	update_post_meta( $post_id, 'bwawwp_displayed_field', $content );
-	
-	// update post meta - hidden meta data
+
+	// update post meta - hidden metadata
 	$content = str_replace( 'SHOULD', 'SHOULD NOT', $content );
 	update_post_meta( $post_id, '_bwawwp_hidden_field', $content );
-	
+
 	// array of student logins
 	$students[] = 'dalya';
 	$students[] = 'ashleigh';
@@ -26,8 +21,10 @@ foreach ( $posts as $post ) {
 	$students[] = 'marin';
 	$students[] = 'brian';
 	$students[] = 'nina';
+ $students[] = 'cam';
 
-	// add post meta - one key with serialized array as value
+	// add post meta - one key with array as value, array will be serialized
+    // automatically
 	add_post_meta( $post_id, 'bwawwp_students', $students, true );
 
 	// loop students and add post meta record for each student
@@ -55,21 +52,18 @@ Array
 (
     [_bwawwp_hidden_field] => Array
         (
-            [0] => You SHOULD NOT see this custom field 
-            when editing your latest post.
+        [0] => You SHOULD NOT see this custom field when editing your latest post.
         )
 
     [bwawwp_displayed_field] => Array
         (
-            [0] => You SHOULD see this custom field when editing 
-            your latest post.
+            [0] => You SHOULD see this custom field when editing your latest post.
         )
 
     [bwawwp_students] => Array
         (
-            [0] => a:7:{i:0;s:5:"dalya";i:1;s:8:"ashleigh";i:2;
-            s:4:"lola";i:3;s:5:"isaac";i:4;s:5:"marin";i:5;
-            s:5:"brian";i:6;s:4:"nina";}
+        [0] => a:7:{i:0;s:5:"dalya";i:1;s:8:"ashleigh";i:2;s:4:"lola";i:3;s:5:
+        "isaac";i:4;s:5:"marin";i:5;s:5:"brian";i:6;s:4:"nina";i:6;s:5:"cam";}
         )
 
     [bwawwp_student] => Array
@@ -81,6 +75,7 @@ Array
             [4] => marin
             [5] => brian
             [6] => nina
+	[7] => cam
         )
 )
 oldest student: dalya

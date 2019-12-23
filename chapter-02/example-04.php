@@ -3,8 +3,8 @@
 $args = array(
 	'post_title'   => 'Building Web Apps with WordPress',
 	'post_excerpt' => 'WordPress as an Application Framework',
-	'post_content' => 'WordPress is the key to successful cost effective 
-	web solutions in most situations. Build almost anything on top of the 
+	'post_content' => 'WordPress is the key to successful cost effective
+	web solutions in most situations. Build almost anything on top of the
 	WordPress platform. DO IT NOW!!!!',
 	'post_status'  => 'draft',
 	'post_type'    => 'post',
@@ -16,7 +16,7 @@ echo 'post ID: ' . $post_id . '<br>';
 
 // update post - change post status to publish
 $args = array(
-	'ID'          => $post_id,
+	'ID'  => $post_id,
 	'post_status' => 'publish'
 );
 wp_update_post( $args );
@@ -33,7 +33,7 @@ echo 'Array Title: ' . $post['post_title'] . '<br>';
 wp_delete_post( $post_id, true );
 
 // get posts - return 100 posts
-$posts = get_posts( array( 'posts_per_page' => '100') );
+$posts = get_posts( array( 'numberposts' => '100') );
 // loop all posts and display the ID & title
 foreach ( $posts as $post ) {
 	echo $post->ID . ': ' .$post->post_title . '<br>';

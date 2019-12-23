@@ -1,16 +1,16 @@
 <?php
 // insert user
 $userdata = array(
-	'user_login'    => 'brian',
+    'user_login'    => 'brian',
 	'user_pass'     => 'KO03gT7@n*',
 	'user_nicename' => 'Brian',
-	'user_url'      => 'http://webdevstudios.com/',
-	'user_email'    => 'brian@schoolpress.me',
+	'user_url'      => 'https://alphaweb.com/',
+	'user_email'    => 'brian@alphaweb.com',
 	'display_name'  => 'Brian',
 	'nickname'      => 'Brian',
 	'first_name'    => 'Brian',
 	'last_name'     => 'Messenlehner',
-	'description'   => 'This is a SchoolPress Administrator account.',
+	'description'   => 'This is a WordPress Administrator account.',
 	'role'          => 'administrator'
 );
 wp_insert_user( $userdata );
@@ -27,7 +27,7 @@ echo 'Hi: ' . $user->first_name . ' ' . $user->last_name . '<br>';
 $user = get_user_by( 'email', 'jason@schoolpress.me' );
 echo 'username: ' . $user->user_login . ' / ID: ' . $user->ID . '<br>';
 
-// update user - add first and last name to brian and change role to admin
+// update user-change username fields and change role to admin
 $userdata = array(
 	'ID'         => $user->ID,
 	'first_name' => 'Jason',
@@ -41,7 +41,7 @@ wp_update_user( $userdata );
 $user = get_userdata( $user->ID );
 echo 'Hi: ' . $user->first_name . ' ' . $user->last_name . '<br>';
 
-// delete user - delete the original admin and set their posts to our new admin
+// delete user-delete the original admin and set their posts to our new admin
 // wp_delete_user( 1, $user->ID );
 
 /*

@@ -1,24 +1,24 @@
 <?php
 // insert post
 $args = array(
-	'post_title'   => '5 year anniversary on 9/10/16',
-	'post_content' => 'Think of somthing cool to do, make a comment!',
-	'post_status'  => 'publish'
+ 'post_title'   => 'What should I do tonight?',
+ 'post_content' => 'Think of something cool to do and make a comment about it!',
+ 'post_status'  => 'publish'
 );
 $post_id = wp_insert_post( $args );
 echo 'post ID: ' . $post_id . ' - ' . $args['post_title'] . '<br>';
 
 // make comments array
-$comments[] = 'Take a trip to South Jersey';
-$comments[] = 'Dinner at Taco Bell';
-$comments[] = 'Make a baby';
+$comments[] = 'ICE CREAM!!!!';
+$comments[] = 'Taco Bell';
+$comments[] = 'Get a good night sleep';
 
-// loop comments array
-foreach ( $comments as $comment ) {
+//loop comments array
+foreach ( $comments as $key => $comment ) {
 	// insert comments
 	$commentdata = array(
 		'comment_post_ID' => $post_id,
-		'comment_content' => $comment,
+		'comment_content' => $comments[$key],
 	);
 	$comment_ids[] = wp_insert_comment( $commentdata );
 }
@@ -28,7 +28,7 @@ echo '</pre>';
 
 // update comment
 $commentarr['comment_ID'] = $comment_ids[0];
-$commentarr['comment_content'] = 'Take a trip to Paris, France';
+$commentarr['comment_content'] = 'Read this entire book';
 wp_update_comment( $commentarr );
 
 // insert comment - sub comment from parent id
@@ -46,7 +46,7 @@ foreach ( $comments as $comment ) {
 	$commentdata = array(
 		'comment_post_ID' => $post_id,
 		'comment_parent' => $comment->comment_ID,
-		'comment_content' => 'Do you want to get smacked up?',
+		'comment_content' => '',
 	);
 	wp_insert_comment( $commentdata );
 }
@@ -60,11 +60,10 @@ $comments = get_comments( 'post_id=' .$post_id );
 foreach ( $comments as $comment ) {
 	// update 1st comment
 	if ( $comment_ids[0] == $comment->comment_ID ) {
-		$commentarr = array(
-			'comment_ID' => $comment->comment_ID,
-			'comment_content' => $comment->comment_content . 
-			' & make a baby!',
-		);
+	 $commentarr = array(
+	  'comment_ID' => $comment->comment_ID,
+	  'comment_content' => $comment->comment_content . ' & build some apps!',
+	);
 		wp_update_comment( $commentarr );
 		// delete all other comments
 	}else {
@@ -83,16 +82,16 @@ echo 'best comment: ' . $comment->comment_content;
 
 /*
 The output from the above example should look something like this:
-post ID: 91011 - 5 year anniversary on 9/10/16
+post ID: 91011 - What should I do tonight?
 comments:
 Array
 (
-    [0] => Take a trip to South Jersey
-    [1] => Dinner at Taco Bell
-    [2] => Make a baby
+    [0] => ICE CREAM!!!!
+    [1] => Taco Bell
+    [2] => Get a good night sleep
 )
 comment count: 5
 new comment count: 1
-best comment: Take a trip to Paris, France & make a baby!
+best comment: Read this entire book & build some apps!
 */
 ?>

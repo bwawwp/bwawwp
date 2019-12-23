@@ -10,12 +10,12 @@ print_r( $bwawwp_twitter_accounts );
 echo '</pre>';
 
 // update option
-$twitters = array_merge( 
-	$twitters, 
-	array( 
-		'@webdevstudios', 
-		'@strangerstudios' 
-	) 
+$twitters = array_merge(
+         $twitters,
+         array(
+                 '@alphaweb',
+                 '@pmproplugin'
+         )
 );
 update_option( 'bwawwp_twitter_accounts', $twitters );
 
@@ -42,8 +42,8 @@ Array
     [0] => @bwawwp
     [1] => @bmess
     [2] => @jason_coleman
-    [3] => @webdevstudios
-    [4] => @strangerstudios
+    [3] => @alphaweb
+    [4] => @pmproplugin
 )
 */
 ?>
