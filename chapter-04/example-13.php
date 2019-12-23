@@ -1,11 +1,19 @@
-/*
-THEME NAME: StartBox Child
-THEME URI: http://bwawwp.com/wp-content/themes/startbox-child/
-DESCRIPTION: StartBox Child Theme
-VERSION: 0.1
-AUTHOR: Jason Coleman
-AUTHOR Uri: http://bwawwp.com
-TAGS: startbox, child, tag
-TEMPLATE: startbox
-*/
-@import url("../startbox/style.css");
+<?php
+function memberlite_child_init() {
+	wp_enqueue_style(
+		'bootstrap',
+		get_stylesheet_directory_uri() .
+            '/bootstrap/css/bootstrap.min.css',
+		'style',
+		'3.0'
+	);
+	wp_enqueue_script(
+		'bootstrap',
+		get_stylesheet_directory_uri() .
+            '/bootstrap/js/bootstrap.min.js',
+		'jquery',
+		'3.0'
+	);
+}
+add_action( 'init', 'memberlite_child_init' );
+?>
