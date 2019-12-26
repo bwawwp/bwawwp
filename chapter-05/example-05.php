@@ -1,12 +1,12 @@
 <?php
 function schoolpress_submissions_template_redirect(){
     global $post, $user_ID;
-    
+
     // only run this function for the submissions post type
     if ( $post->post_type != 'submissions' )
     	return;
-    
-    // check if post_author is the current user_ID 
+
+    // check if post_author is the current user_ID
     if ( $post->post_author == $user_ID )
     	$no_redirect = true;
 
@@ -20,7 +20,7 @@ function schoolpress_submissions_template_redirect(){
     	exit();
     }
 }
-// use the template_redirect hook to call a function that decides if the
-// current user can access the current homework submission
+// Use the template_redirect hook to call a function that decides if the
+// current user can access the current homework submission.
 add_action( 'template_redirect', 'schoolpress_submissions_template_redirect' );
 ?>

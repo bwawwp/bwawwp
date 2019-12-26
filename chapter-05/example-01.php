@@ -4,7 +4,7 @@ function schoolpress_register_post_type_homework() {
     register_post_type( 'homework',
         array(
             'labels' => array(
-				'name' => __( 'Homework' ),
+        		'name' => __( 'Homework' ),
 				'singular_name' => __( 'Homework' )
 			),
 		'public' => true,
