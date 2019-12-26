@@ -7,4 +7,3 @@ wp_delete_user( $user_id );
 
 //or delete a user and reassign their posts to user with ID #1
 wp_delete_user( $user_id, 1 );
-?>

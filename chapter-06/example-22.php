@@ -3,6 +3,5 @@
 $student = new Student();
 foreach( $student->getAssignments() as $assignment ) {
 	// assignment here is an instance of a class that extends WP_Post
-    $assignment->print(); 
+    $assignment->print();
 }
-?>

@@ -10,4 +10,3 @@ wp_update_user( array(
     'title' => 'CEO',
     'personality' => 'crescent fresh'
 ));
-?>

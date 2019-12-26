@@ -1,7 +1,7 @@
 <?php
 //create a new "course" CPT when a teacher registers
 function sp_user_register( $user_id ){
-    // check if the new user is a teacher (see Chapter 15 for details)
+    // check if the new user is a teacher (see chapter 15 for details)
     if ( pmpro_hasMembershipLevel( 'teacher', $user_id ) ) {
         // add a new "course" CPT with this user as author
         wp_insert_post( array(
@@ -10,9 +10,8 @@ function sp_user_register( $user_id ){
             'post_author' => $user_id,
             'post_status' => 'draft',
             'post_type' => 'course'
-            
+
         ) );
     }
 }
 add_action( 'user_register', 'sp_user_register' );
-?>

@@ -22,4 +22,3 @@ $user = new WP_User( $user_id );
 
 //use the WP_User constructor with a username
 $user = new WP_User( $username );
-?>

@@ -1,7 +1,7 @@
 <?php
 // insert user from values we've gathered
 $user_id = wp_insert_user( array(
-	'user_login' => $username,							
+	'user_login' => $username,
 	'user_pass' => $password,
 	'user_email' => $email,
 	'first_name' => $firstname,
@@ -15,4 +15,3 @@ if ( is_wp_error( $user_id ) ){
 } else {
     // continue on with whatever you want to do with the new $user_id
 }
-?>

@@ -5,16 +5,15 @@ function sp_register_form(){
         $age = intval( $_REQUEST['age'] );
     else
         $age = '';
-        
+
     // show input
-    $age = esc_attr( $age );?>
+    ?>
     <p>
     <label for="age">Age<br />
-    <input type="text" name="age" id="age" class="input" 
-        value="<?php echo $age ?>" />
+    <input type="text" name="age" id="age" class="input"
+        value="<?php echo esc_attr( $age ); ?>" />
     </label>
     </p>
     <?php
 }
-add_action( 'register_form', 'sp_register_form');
-?>
+add_action( 'register_form', 'sp_register_form' );

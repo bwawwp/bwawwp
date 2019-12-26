@@ -7,4 +7,3 @@ $year = '2012';
 $year = $user->graduation_year;
 if ( empty( $year ) )
     $year = '2012';
-?>

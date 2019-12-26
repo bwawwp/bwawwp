@@ -10,4 +10,3 @@ wp_mail( $user->user_email, 'Email Subject', 'Email Body' );
 
 // get any user meta value
 echo 'Department: ' . $user->department;
-?>
