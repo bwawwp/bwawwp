@@ -5,4 +5,3 @@ print_r($details);
 echo '</pre>';
 echo 'Site URL:' . $details->siteurl;
 echo 'Post Count:' . $details->post_count;
-?>
