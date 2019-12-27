@@ -4,33 +4,32 @@ function hbdemo_wp_footer()
 {
 ?>
 <script>
-  jQuery(document).ready(function() {    			
-	//hook into heartbeat-send: client will send the message 
+  jQuery(document).ready(function() {
+	//hook into heartbeat-send: client will send the message
 	//'marco' in the 'client' var inside the data array
 	jQuery(document).on('heartbeat-send', function(e, data) {
 		console.log('Client: marco');
-		
-		//need some data to kick off AJAX call
+
+		//need some data to kick off Ajax call
 		data['client'] = 'marco';
 	});
-	
-	//hook into heartbeat-tick: client looks for a 'server' 
+
+	//hook into heartbeat-tick: client looks for a 'server'
 	//var in the data array and logs it to console
-	jQuery(document).on('heartbeat-tick', function(e, data) {			
+	jQuery(document).on('heartbeat-tick', function(e, data) {
 		if(data['server'])
 			console.log('Server: ' + data['server']);
 	});
-			
+
 	//hook into heartbeat-error to log errors
-	jQuery(document).on('heartbeat-error', 
+	jQuery(document).on('heartbeat-error',
 		function(e, jqXHR, textStatus, error) {
 			console.log('BEGIN ERROR');
 			console.log(textStatus);
-			console.log(error);			
-			console.log('END ERROR');			
+			console.log(error);
+			console.log('END ERROR');
 		});
-  });		
+  });
 </script>
 <?php
 }
-?>
