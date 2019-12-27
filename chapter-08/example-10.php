@@ -5,4 +5,3 @@ function schoolpress_footer_create_nonce(){
 	echo '<p><a href="' . $url . '">Verify this Nonce</a></p>';
 }
 add_action( 'wp_footer', 'schoolpress_footer_create_nonce' );
-?>
