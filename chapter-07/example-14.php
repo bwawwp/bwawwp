@@ -8,4 +8,3 @@ function sp_remove_network_dashboard_widgets()
   remove_meta_box('dashboard_secondary', 'dashboard-network', 'side');
 }
 add_action('wp_network_dashboard_setup', 'sp_remove_network_dashboard_widgets');
-?>

@@ -8,4 +8,3 @@ function sp_cron_schedules($schedules)
 	);
 }
 add_filter( 'cron_schedules', 'sp_cron_schedules' );
-?>

@@ -6,7 +6,7 @@ if(!empty($caps))
 {
   //guilty until proven innocent
   $hascap = false;
-  
+
   //must be logged in to have any caps at all
   if(is_user_logged_in())
   {
@@ -20,7 +20,7 @@ if(!empty($caps))
       }
     }
   }
-  
+
   if(!$hascap)
   {
     //don't show them the file
@@ -29,4 +29,3 @@ if(!empty($caps))
     exit;
   }
 }
-?>

@@ -12,4 +12,3 @@ $wp_meta_boxes['dashboard']['side']['core']['dashboard_quick_press']
 $wp_meta_boxes['dashboard']['side']['core']['dashboard_recent_drafts']
 $wp_meta_boxes['dashboard']['side']['core']['dashboard_primary']
 $wp_meta_boxes['dashboard']['side']['core']['dashboard_secondary']
-?>

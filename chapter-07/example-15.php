@@ -1,13 +1,13 @@
 <?php
 /*
-	Add dashboard widgets
+    Add dashboard widgets
 */
 function sp_add_dashboard_widgets() {
-	wp_add_dashboard_widget( 
-		'schoolpress_assignments', 
-		'Assignments', 
-		'sp_assignments_dashboard_widget', 
-		'sp_assignments_dashboard_widget_configuration' 
+	wp_add_dashboard_widget(
+		'schoolpress_assignments',
+		'Assignments',
+		'sp_assignments_dashboard_widget',
+		'sp_assignments_dashboard_widget_configuration'
 	);
 }
 add_action( 'wp_dashboard_setup', 'sp_add_dashboard_widgets' );
@@ -18,15 +18,15 @@ add_action( 'wp_dashboard_setup', 'sp_add_dashboard_widgets' );
 //widget
 function sp_assignments_dashboard_widget() {
 	$options = get_option( "assignments_dashboard_widget_options", array() );
-	
+
 	if ( !empty( $options['course_id'] ) ) {
-		$group = groups_get_group( array( 
-			'group_id'=>$options['course_id'] 
+		$group = groups_get_group( array(
+			'group_id'=>$options['course_id']
 			) );
 	}
-	
+
 	if ( !empty( $group ) ) {
-		echo "Showing assignments for class " . 
+		echo "Showing assignments for class " .
 			$group->name . ".<br />...";
 		/*
 			get assignments for this group and list their status
@@ -47,8 +47,8 @@ function sp_assignments_dashboard_widget_configuration() {
 	//saving options?
 	if ( isset( $_POST['assignments_dashboard_options_save'] ) ) {
 		//get course_id
-		$options['course_id'] = intval( 
-			$_POST['assignments_dashboard_course_id'] 
+		$options['course_id'] = intval(
+			$_POST['assignments_dashboard_course_id']
 			);
 
 		//save it
@@ -66,13 +66,13 @@ function sp_assignments_dashboard_widget_configuration() {
 			All Classes
 		</option>
 		<?php
-		$groups = groups_get_groups( array( 'orderby'=>'name', 
+		$groups = groups_get_groups( array( 'orderby'=>'name',
 						'order'=>'ASC' ) );
-		
+
 		if ( !empty( $groups ) && !empty( $groups['groups'] ) ) {
 			foreach ( $groups['groups'] as $group ) {
 			?>
-			<option value="<?php echo intval( $group->id );?>" 
+			<option value="<?php echo intval( $group->id );?>"
 			<?php selected( $options['course_id'], $group->id );?>>
 			<?php echo $group->name;?>
 			</option>
@@ -85,4 +85,3 @@ function sp_assignments_dashboard_widget_configuration() {
 	<input type="hidden" name="assignments_dashboard_options_save" value="1" />
 	<?php
 }
-?>

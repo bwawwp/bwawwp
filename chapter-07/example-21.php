@@ -1,5 +1,5 @@
 <?php
-//Add rule and flush on acitvation.
+//Add rule and flush on activation.
 function sp_activation()
 {
 	add_rewrite_rule(
@@ -25,10 +25,9 @@ function sp_init()
 }
 add_action('init', 'sp_init');
 
-//Fush rewrite rules on deactivation to remove our rule.
+//Flush rewrite rules on deactivation to remove our rule.
 function sp_deactivation()
 {
 	flush_rewrite_rules();
 }
 register_deactivation_hook(__FILE__, 'sp_deactivation');
-?>

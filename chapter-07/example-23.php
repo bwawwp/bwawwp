@@ -20,4 +20,3 @@ function sp_daily_cron()
 	//do this daily
 }
 add_action("sp_daily_cron", "sp_daily_cron");
-?>
