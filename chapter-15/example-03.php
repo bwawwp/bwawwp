@@ -1,33 +1,24 @@
 <?php
-/*
-Plugin Name: Always HTTPS
-Plugin URI: http://www.strangerstudios.com/wp/always-https
-Description: Redirect all URLs to the HTTPS version.
-Version: .1
-Author: strangerstudios
-*/
-
-/*
-	Make sure to set FORCE_SSL_ADMIN to true.
-	Add the following to your wp-config.php:
-
-	define('FORCE_SSL_ADMIN', true);
-*/
-
-//redirect to https
-function always_https_redirect()
+//Restrict access to a page if a user hasn't purchased a specific download yet
+function my_template_redirect_check_edd()
 {
-	//if FORCE_SSL_ADMIN is true and we're not over HTTPS
-	if(force_ssl_admin() && !is_ssl())
-	{
-		//redirect to https version of the page
-		wp_redirect("https://" . $_SERVER['HTTP_HOST'] . 
-			$_SERVER['REQUEST_URI']);
+	global $current_user;
+
+	//Set to slug of page to protect.
+	$protected_page_slug = 'customers-only';
+
+	//Set to ID of download to check for.
+	$required_download_id = 184;
+
+	//Only protecting one specific page.
+	if(!is_page($protected_page_slug))
+		return;
+
+	//Redirect if no user or missing purchase.
+	if(!is_user_logged_in() ||
+	   !edd_has_user_purchased($current_user->ID, $required_download_id)) {
+               wp_redirect(get_permalink($required_download_id));
 		exit;
 	}
 }
-add_action('wp', 'always_https_redirect', 2);
-
-//(optional) Tell Paid Memberships Pro to get on board with the HTTPS redirect.
-add_filter("pmpro_besecure", "__return_true");
-?>
+add_action('template_redirect', 'my_template_redirect_check_edd');
