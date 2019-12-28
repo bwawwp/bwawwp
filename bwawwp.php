@@ -9,6 +9,8 @@
 function bwawwp_init()
 {
 	if(!empty($_REQUEST['chapter']) && !empty($_REQUEST['example']))	
-		require(dirname(__FILE__) . "/chapter-" . $_REQUEST['chapter'] . "/example-" . $_REQUEST['example'] . ".php");
+		$chapter = preg_replace('[^0-9]', $_REQUEST['chapter']);
+		$example = preg_replace('[^0-9]', $_REQUEST['example']);
+		require(dirname(__FILE__) . "/chapter-" . $chapter . "/example-" . $example . ".php");
 }
 add_action("init", "bwawwp_init");

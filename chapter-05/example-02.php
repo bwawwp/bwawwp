@@ -13,4 +13,3 @@ function schoolpress_register_taxonomy_subject() {
 }
 // call our custom function with the init hook
 add_action( 'init', 'schoolpress_register_taxonomy_subject' );
-?>

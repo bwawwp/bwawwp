@@ -1,0 +1,11 @@
+rename table wp_commentmeta to anyprefix_commentmeta;
+rename table wp_comments to anyprefix_comments;
+rename table wp_links to anyprefix_links;
+rename table wp_options to anyprefix_options;
+rename table wp_postmeta to anyprefix_postmeta;
+rename table wp_posts to anyprefix_posts;
+rename table wp_terms to anyprefix_terms;
+rename table wp_term_relationships to anyprefix_term_relationships;
+rename table wp_term_taxonomy to anyprefix_term_taxonomy;
+rename table wp_usermeta to anyprefix_usermeta;
+rename table wp_users to anyprefix_users;

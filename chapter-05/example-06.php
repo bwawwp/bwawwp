@@ -1,7 +1,7 @@
 <?php
-// function for adding a custom meta box
+// Callback for adding a custom meta box.
 function schoolpress_homework_add_meta_boxes(){
-	
+
     add_meta_box(
         'homework_meta',
         'Additonal Homework Info',
@@ -11,39 +11,39 @@ function schoolpress_homework_add_meta_boxes(){
     );
 
 }
-// use the add_meta_boxes hook to call a custom function to add a new meta box
+// Use the add_meta_boxes hook to call a custom function to add a new meta box.
 add_action( 'add_meta_boxes', 'schoolpress_homework_add_meta_boxes' );
 
-// this is the callback function called from add_meta_box
+// This is the callback function called from add_meta_box.
 function schoolpress_homework_meta_box( $post ){
-    // doing this so the url will fit in the book ;)
-    $jquery_url = 'http://ajax.googleapis.com/ajax/libs/';
-    $jquery_url.= 'jqueryui/1.8.2/themes/smoothness/jquery-ui.css';
+    // Using 2 liens here so the url will fit in the book ;)
+    $smoothness_url = 'http://ajax.googleapis.com/ajax/libs/';
+    $smoothness_url.= 'jqueryui/1.12.1/themes/smoothness/jquery-ui.css';
 
-    // enqueue jquery date picker
+    // Enqueue jquery date picker.
     wp_enqueue_script( 'jquery-ui-datepicker' );
-    wp_enqueue_style( 'jquery-style', $jquery_url );
+    wp_enqueue_style( 'jquery-style', $smoothness_url );
 
-    // set meta data if already exists
-    $is_required = get_post_meta( $post->ID, 
-	    '_schoolpress_homework_is_required', 1 );
+    // Set metadata if already exists.
+    $is_required = get_post_meta( $post->ID,
+        '_schoolpress_homework_is_required', 1 );
 
-    $due_date = get_post_meta( $post->ID, 
-	    '_schoolpress_homework_due_date', 1 );
-    // output meta data fields
+    $due_date = get_post_meta( $post->ID,
+        '_schoolpress_homework_due_date', 1 );
+    // Output metadata fields.
     ?>
     <p>
-    <input type="checkbox" 
+    <input type="checkbox"
     name="is_required" value="1" <?php checked( $is_required, '1' ); ?>>
     This assignment is required.
     </p>
     <p>
     Due Date:
-    <input type="text" 
+    <input type="text"
     name="due_date" id="due_date" value="<?php echo $due_date;?>">
     </p>
-    <?php // attach jquery date picker to our due_date field?>
     <script>
+    // Attach jQuery date picker to our due_date field.
     jQuery(document).ready(function() {
         jQuery('#due_date').datepicker({
             dateFormat : 'mm/dd/yy'
@@ -53,36 +53,36 @@ function schoolpress_homework_meta_box( $post ){
     <?php
 }
 
-// function for saving custom meta data to the database
+// Callback for saving custom metadata to the database.
 function schoolpress_homework_save_post( $post_id ){
 
-  // don't save anything if WP is auto saving
-  if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) 
+  // Don't save anything if WP is auto saving.
+  if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
       return $post_id;
 
-  // check if correct post type and that the user has correct permissions
+  // Check if correct post type and that the user has correct permissions.
   if ( 'homework' == $_POST['post_type'] ) {
 
     if ( ! current_user_can( 'edit_page', $post_id ) )
         return $post_id;
-  
+
   } else {
 
     if ( ! current_user_can( 'edit_post', $post_id ) )
         return $post_id;
   }
 
-  // update homework meta data
-  update_post_meta( $post_id, 
-  	'_schoolpress_homework_is_required', 
-  	$_POST['is_required'] 
+  // Update homework metadata.
+  update_post_meta( $post_id,
+    '_schoolpress_homework_is_required',
+    $_POST['is_required']
   );
-  update_post_meta( $post_id, 
-  	'_schoolpress_homework_due_date', 
-  	$_POST['due_date'] 
+  update_post_meta( $post_id,
+    '_schoolpress_homework_due_date',
+    $_POST['due_date']
   );
 
 }
-// call a custom function to handle saving our meta data
+// Call a custom function to handle saving our metadata.
 add_action( 'save_post', 'schoolpress_homework_save_post' );
 ?>

@@ -1,5 +1,5 @@
-<link rel='stylesheet' 
-	id='twentytwelve-style-css' 
-	href='.../wp-content/themes/twentytwelve/style.css?ver=3.5.2' 
-	type='text/css' 
+<link rel='stylesheet'
+	id='twentynineteen-style-css'
+	href='.../wp-content/themes/twentynineteen/style.css?ver=1.4'
+	type='text/css'
 	media='all' />

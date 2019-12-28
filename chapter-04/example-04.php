@@ -6,6 +6,9 @@ function load_template( $_template_file, $require_once = true ) {
 	if ( is_array( $wp_query->query_vars ) )
 		extract( $wp_query->query_vars, EXTR_SKIP );
 
+  	if ( isset( $s ) )
+		$s = esc_attr( $s );
+
 	if ( $require_once )
 		require_once( $_template_file );
 	else

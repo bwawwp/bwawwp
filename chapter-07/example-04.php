@@ -1,4 +1,4 @@
-<?php
+<?php 
 //make a copy of the original shortcodes
 global $shortcode_tags;
 $original_shortcode_tags = $shortcode_tags;
@@ -12,4 +12,3 @@ echo $content;
 
 //restore the original shortcodes
 $shortcode_tags = $original_shortcode_tags;
-?>

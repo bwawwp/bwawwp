@@ -1,8 +1,8 @@
+<?php
 /*
-Plugin Name: Paid Memberships Pro
-Plugin URI: http://www.paidmembershipspro.com
-Description: Plugin to Handle Memberships
-Version: 1.7.3.2
-Author: Stranger Studios
-Author URI: http://www.strangerstudios.com
+  Taken from the Widgets API Codex Page at:
+  http://codex.wordpress.org/Widgets_API
 */
+add_action('widgets_init',
+     create_function('', 'return register_widget("My_Widget");')
+);

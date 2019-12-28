@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteBase /
+RewriteRule ^wp-content/uploads/(.*)$ \
+    /wp-content/plugins/paid-memberships-pro/services/getfile.php [L]

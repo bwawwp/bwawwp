@@ -11,11 +11,11 @@ $message = sanitize_text_field( $_POST['message'] );
 $sendemail = !empty( $_POST['sendemail'] );
 
 // form submitted?
-if ( !empty( $sendemail ) 
-	&& !empty( $cname ) 
-	&& !empty( $email ) 
+if ( !empty( $sendemail )
+    && !empty( $cname )
+	&& !empty( $email )
 	&& empty( $lname ) ) {
-	
+
 	$mailto = get_bloginfo( 'admin_email' );
 	$mailsubj = "Contact Form Submission from " . get_bloginfo( 'name' );
 	$mailhead = "From: " . $cname . " <" . $email . ">\n";

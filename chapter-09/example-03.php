@@ -1,7 +1,7 @@
 <?php
-//frontend JS
+//frontend JavaScript
 function sp_wp_enqueue_scripts() {
-	wp_enqueue_script( 'jquery' );
+    wp_enqueue_script( 'jquery' );
 	wp_enqueue_script(
 		'schoolpress-plugin-frontend',
 		plugins_url( 'js/frontend.js', __FILE__ ),
@@ -11,7 +11,7 @@ function sp_wp_enqueue_scripts() {
 }
 add_action( "wp_enqueue_scripts", "sp_wp_enqueue_scripts" );
 
-//admin JS
+//admin JavaScript
 function sp_admin_enqueue_scripts() {
 	wp_enqueue_script(
 		'schoolpress-plugin-admin',
@@ -21,4 +21,3 @@ function sp_admin_enqueue_scripts() {
 	);
 }
 add_action( 'admin_enqueue_scripts', 'sp_admin_enqueue_scripts' );
-?>

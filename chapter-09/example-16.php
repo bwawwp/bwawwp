@@ -2,7 +2,7 @@
 //processing the message on the server
 function sp_heartbeat_received_assignment_count($response, $data)
 {
-	//check for assignment post id
+    //check for assignment post id
 	if(!empty($data['schoolpress']['assignment_post_id']))
 	{
 		$assignment = new Assignment(
@@ -12,9 +12,8 @@ function sp_heartbeat_received_assignment_count($response, $data)
 			$assignment->submissions
 			);
 	}
-	
+
 	return $response;
 }
-add_filter('heartbeat_received', 
+add_filter('heartbeat_received',
 	'sp_heartbeat_received_assignment_count', 10, 2);
-?>

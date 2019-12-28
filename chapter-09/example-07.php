@@ -1,14 +1,10 @@
 <?php
-//detect AJAX request for check_username
+//detect Ajax request for check_username
 function wp_ajax_check_username() {
-	global $wpdb;
+    global $wpdb;
 	$username = $_REQUEST['username'];
 
-	$taken = $wpdb->get_var( "
-		SELECT user_login 
-		FROM $wpdb->users 
-		WHERE user_login = '" . $wpdb->escape( $username ) . "' LIMIT 1" 
-		);
+	$taken = username_exists( $username );
 
 	if ( $taken )
 		echo "0";   //taken
@@ -17,4 +13,3 @@ function wp_ajax_check_username() {
 }
 add_action( 'wp_ajax_check_username', 'wp_ajax_check_username' );
 add_action( 'wp_ajax_nopriv_check_username', 'wp_ajax_check_username' );
-?>
