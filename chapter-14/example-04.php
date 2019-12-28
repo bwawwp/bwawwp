@@ -20,7 +20,7 @@ function jsdn_show_display_name($prefix = "Welcome,&nbsp;")
 ?>
 <p>
 	<script src="<?php echo admin_url(
-        "/admin-ajax.php?action=jsdn_show_display_name&prefix=" . 
+        "/admin-ajax.php?action=jsdn_show_display_name&prefix=" .
             urlencode($prefix)
         );?>"></script>
 </p>
@@ -29,7 +29,7 @@ function jsdn_show_display_name($prefix = "Welcome,&nbsp;")
 
 
 /*
-	This function detects the JavaScript call and returns the user's display name
+This function detects the JavaScript call and returns the user's display name
 */
 function jsdn_wp_ajax()
 {
@@ -44,9 +44,8 @@ function jsdn_wp_ajax()
 	document.write(<?php echo json_encode($text);?>);
 	<?php
 	}
-	
+
 	exit;
 }
 add_action('wp_ajax_jsdn_show_display_name', 'jsdn_wp_ajax');
 add_action('wp_ajax_nopriv_jsdn_show_display_name', 'jsdn_wp_ajax');
-?>
